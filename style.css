@@ -1,0 +1,415 @@
+
+/* ========================================
+   1. VARIABLES Y ESTILOS GENERALES
+======================================== */
+
+@font-face {
+    font-family: "Druk Wide";
+    src: url("https://www.erregalvez.com/wp-content/themes/erregalvez/assets/fonts/Druk_Wide.woff2") format("woff2"),
+         url("https://www.erregalvez.com/wp-content/themes/erregalvez/assets/fonts/Druk_Wide.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --color-black: #000;
+    --color-white: #fff;
+    --color-gray: #a0a0a0;
+
+    --font-text: "Work Sans", sans-serif;
+    --font-headers: "Druk Wide", sans-serif;
+
+    --font-size-big: clamp(1.5rem, 2vw, 1.75rem);
+    --font-size-extra-big: clamp(3rem, 2vw, 4rem);
+    --font-size-medium: clamp(1rem, 1.5vw, 1.2rem);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--color-black);
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: var(--font-text);
+    font-size: var(--font-size-medium);
+    color: var(--color-white);
+    line-height: 1.5;
+    background-color: var(--color-black);
+}
+
+a {
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--color-gray);
+}
+
+.container {
+    width: 90%;
+    max-width: 1500px;
+    margin: auto;
+}
+
+
+/* ========================================
+   2. CABECERA Y LOGOTIPO
+======================================== */
+
+#header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+#header .header__content {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+}
+
+#header .logo.logo-home {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    pointer-events: none;
+}
+
+#header .logo__h1 {
+    font-family: var(--font-headers);
+    font-size: var(--font-size-big);
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+@media screen and (min-width: 450px) {
+    #header .logo.logo-home {
+        text-align: center;
+    }
+}
+
+
+/* ========================================
+   3. SELECTOR DE IDIOMA
+======================================== */
+
+.select-lang {
+    display: none;
+    margin-right: 1.5rem;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 11;
+}
+
+.select-lang__ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.select-lang__ul li:first-child {
+    margin-right: 0.25rem;
+}
+
+.select-lang__ul li:first-child::after {
+    content: "|";
+    padding-left: 0.25rem;
+}
+
+.select-lang__ul .current-lang a {
+    color: var(--color-gray);
+}
+
+@media screen and (min-width: 768px) {
+    .select-lang {
+        display: inline;
+    }
+}
+
+
+/* ========================================
+   4. MENÚ MÓVIL
+======================================== */
+
+.menu-mobile {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    cursor: pointer;
+    z-index: 12;
+    background: none;
+    border: 0;
+}
+
+.menu-mobile-bar,
+.menu-mobile-bar::before,
+.menu-mobile-bar::after {
+    position: absolute;
+    width: 40px;
+    height: 3px;
+    background: var(--color-white);
+    display: block;
+    transition: transform 0.25s ease, top 0.25s ease, bottom 0.25s ease, opacity 0.25s ease;
+}
+
+.menu-mobile-bar {
+    top: 50%;
+    left: 0;
+}
+
+.menu-mobile-bar::before,
+.menu-mobile-bar::after {
+    content: "";
+    left: 0;
+}
+
+.menu-mobile-bar::before {
+    top: -8px;
+}
+
+.menu-mobile-bar::after {
+    bottom: -8px;
+}
+
+.menu-mobile:hover .menu-mobile-bar,
+.menu-mobile:hover .menu-mobile-bar::before,
+.menu-mobile:hover .menu-mobile-bar::after {
+    background-color: var(--color-gray);
+}
+
+.menu-mobile.close .menu-mobile-bar {
+    transform: rotate(45deg);
+}
+
+.menu-mobile.close .menu-mobile-bar::before {
+    top: 0;
+    opacity: 0;
+}
+
+.menu-mobile.close .menu-mobile-bar::after {
+    bottom: 0;
+    transform: rotate(-90deg);
+}
+
+.navigation {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 9;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.navigation.open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.navigation ul.menu {
+    width: 100%;
+    height: calc(100vh - 250px);
+    margin: 125px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+.navigation ul.menu li {
+    list-style: none;
+    padding: 0.5rem 1rem;
+    text-align: center;
+}
+
+.navigation ul.menu a {
+    font-family: var(--font-headers);
+    font-size: var(--font-size-big);
+    text-transform: uppercase;
+}
+
+.select-lang__menu {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-transform: uppercase;
+}
+
+.select-lang__menu li:first-child {
+    margin-right: 0.25rem;
+}
+
+.select-lang__menu li:first-child::after {
+    content: "|";
+    padding-left: 0.25rem;
+}
+
+@media screen and (min-width: 768px) {
+    .select-lang__menu {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .navigation ul.menu a {
+        font-size: var(--font-size-extra-big);
+    }
+}
+
+
+/* ========================================
+   5. PANELES DE IMÁGENES Y CARRUSELES
+======================================== */
+
+.slideshow {
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+}
+
+.slideshow .splide {
+    width: 50%;
+    height: 100vh;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.slideshow .splide__track,
+.slideshow .splide__list,
+.slideshow .splide__slide {
+    width: 100%;
+    height: 100%;
+}
+
+.slideshow .splide__slide {
+    position: relative;
+}
+
+.slideshow .splide__image {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.slideshow .splide__text {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.slideshow .splide__title {
+    color: var(--color-white);
+    text-transform: uppercase;
+    font-family: var(--font-headers);
+    font-size: var(--font-size-big);
+    text-align: center;
+    padding: 2rem;
+    line-height: 2rem;
+}
+
+.slideshow .splide__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    transition: background-color 0.5s;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.slideshow .splide:hover .splide__overlay {
+    background-color: rgba(0, 0, 0, 0.35);
+}
+
+/* Ocultar controles del carrusel */
+.splide__arrows,
+.splide__pagination {
+    display: none;
+}
+
+@media screen and (min-width: 1024px) {
+    .slideshow .splide__title {
+        font-size: var(--font-size-extra-big);
+        line-height: 3rem;
+    }
+}
+
+
+/* ========================================
+   6. DISEÑO RESPONSIVE
+======================================== */
+
+/* En vertical, los paneles se apilan */
+@media screen and (orientation: portrait) {
+    .slideshow {
+        flex-direction: column;
+    }
+
+    .slideshow .splide {
+        width: 100%;
+        height: 50vh;
+        min-height: 50vh;
+    }
+
+    .slideshow .splide__image,
+    .slideshow .splide__text {
+        height: 50vh;
+    }
+}
+
+/* En horizontal, los paneles se muestran lado a lado */
+@media screen and (orientation: landscape) {
+    .slideshow {
+        flex-direction: row;
+    }
+
+    .slideshow .splide {
+        width: 50%;
+        height: 100vh;
+        min-height: 100vh;
+    }
+
+    .slideshow .splide__image,
+    .slideshow .splide__text {
+        height: 100vh;
+    }
+}
