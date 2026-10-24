@@ -110,3 +110,206 @@
     gap: 22px 12px;
   }
 }
+
+/* ========================================
+   PROYECTOS — TEMA NEGRO Y BLANCO
+======================================== */
+
+:root {
+    --color-fondo: #000000;
+    --color-texto: #ffffff;
+    --color-secundario: #a3a3a3;
+    --color-linea: #333333;
+}
+
+/* Fondo general */
+
+html,
+body {
+    background-color: var(--color-fondo) !important;
+    color: var(--color-texto);
+}
+
+/* Cabecera y navegación */
+
+.cabecera-proyectos {
+    background-color: var(--color-fondo);
+}
+
+.logo,
+.cabecera-proyectos .logo {
+    color: var(--color-texto);
+}
+
+.menu a,
+.cabecera-proyectos .menu a {
+    color: var(--color-texto);
+    transition: opacity 0.25s ease;
+}
+
+.menu a:hover,
+.cabecera-proyectos .menu a:hover {
+    color: var(--color-texto);
+    opacity: 0.55;
+}
+
+/* Botón del menú móvil */
+
+.menu-mobile {
+    color: var(--color-texto);
+    background-color: transparent;
+}
+
+/* Contenido de proyectos */
+
+.pagina-proyectos {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+.pagina-proyectos h1 {
+    color: var(--color-texto);
+}
+
+/* Filtros */
+
+.filtros a {
+    color: var(--color-secundario);
+    transition: color 0.25s ease;
+}
+
+.filtros a:hover {
+    color: var(--color-texto);
+}
+
+/* Tarjetas de proyectos */
+
+.proyecto {
+    color: var(--color-texto);
+    transition: opacity 0.3s ease;
+}
+
+.proyecto:hover {
+    opacity: 0.75;
+}
+
+.proyecto h2 {
+    color: var(--color-texto);
+}
+
+.proyecto p {
+    color: var(--color-secundario);
+}
+
+/* Imágenes */
+
+.proyecto img {
+    background-color: #151515;
+}
+
+/* Pie de página */
+
+.pie {
+    background-color: var(--color-fondo);
+    color: var(--color-secundario);
+    border-top: 1px solid var(--color-linea);
+}
+
+.pie a {
+    color: var(--color-texto);
+    text-decoration: none;
+}
+
+.pie a:hover {
+    opacity: 0.55;
+}
+
+/* Selección de texto */
+
+::selection {
+    background-color: var(--color-texto);
+    color: var(--color-fondo);
+}
+
+/* Adaptación a móviles */
+
+@media (max-width: 700px) {
+    .cabecera-proyectos {
+        background-color: var(--color-fondo);
+    }
+
+    .menu a {
+        color: var(--color-texto);
+    }
+
+    .pagina-proyectos {
+        background-color: var(--color-fondo);
+    }
+}
+
+/* ========================================
+   TIPOGRAFÍA UNIFICADA EN PROYECTOS
+======================================== */
+
+/* Misma familia tipográfica que la página personal */
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Título principal */
+
+.pagina-proyectos h1 {
+    font-family: inherit;
+    font-size: clamp(42px, 7vw, 88px);
+    font-weight: 400;
+    letter-spacing: -0.05em;
+    line-height: 1;
+}
+
+/* Títulos de los proyectos */
+
+.proyecto h2 {
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: -0.035em;
+    line-height: 1.2;
+}
+
+/* Descripciones */
+
+.proyecto p {
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+/* Filtros y navegación */
+
+.filtros a,
+.cabecera-proyectos .menu a {
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+/* Logotipo */
+
+.cabecera-proyectos .logo {
+    font-family: inherit;
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -0.06em;
+}
+
+/* Pie de página */
+
+.pie {
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 400;
+}

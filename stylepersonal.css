@@ -287,3 +287,430 @@
         display: flex;
     }
 }
+
+/* ========================================
+   ESTILO EDITORIAL — INSPIRADO EN NUDO
+======================================== */
+
+:root {
+    --color-fondo: #f5f3ed;
+    --color-texto: #20201d;
+    --color-secundario: #77766f;
+    --color-linea: #d9d7cf;
+}
+
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Cabecera */
+
+.cabecera-proyectos {
+    padding: 28px 5%;
+    background: var(--color-fondo);
+}
+
+.cabecera-proyectos .logo {
+    color: var(--color-texto);
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -0.06em;
+}
+
+.cabecera-proyectos .menu {
+    gap: 30px;
+}
+
+.cabecera-proyectos .menu a {
+    color: var(--color-texto);
+    font-size: 12px;
+    transition: opacity 0.25s ease;
+}
+
+.cabecera-proyectos .menu a:hover {
+    color: var(--color-texto);
+    opacity: 0.45;
+}
+
+/* Presentación */
+
+.personal-page {
+    padding: 85px 5% 0;
+    color: var(--color-texto);
+}
+
+.personal-intro {
+    max-width: 1200px;
+    margin: 0 auto 180px;
+}
+
+.personal-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    line-height: 1.5;
+    text-transform: uppercase;
+    color: var(--color-secundario);
+    margin-bottom: 30px;
+}
+
+.personal-intro h1 {
+    max-width: 1100px;
+    font-size: clamp(54px, 9.2vw, 132px);
+    font-weight: 400;
+    letter-spacing: -0.085em;
+    line-height: 0.94;
+    margin: 0 0 65px;
+    text-wrap: balance;
+}
+
+.personal-bio {
+    max-width: 700px;
+    margin-left: auto;
+    font-size: clamp(17px, 1.7vw, 22px);
+    line-height: 1.55;
+    letter-spacing: -0.025em;
+}
+
+.personal-bio p {
+    margin-bottom: 20px;
+}
+
+/* Secciones */
+
+.personal-section {
+    max-width: 1200px;
+    margin: 0 auto 155px;
+}
+
+.personal-section-heading {
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    border-bottom: 1px solid var(--color-linea);
+    padding-bottom: 30px;
+    margin-bottom: 0;
+}
+
+.personal-section-heading .personal-eyebrow {
+    margin-top: 12px;
+}
+
+.personal-section-heading h2 {
+    font-size: clamp(36px, 5.5vw, 76px);
+    font-weight: 400;
+    letter-spacing: -0.075em;
+    line-height: 1;
+}
+
+/* Estudios y experiencia */
+
+.personal-item {
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--color-linea);
+    transition: padding-left 0.3s ease;
+}
+
+.personal-item:hover {
+    padding-left: 8px;
+}
+
+.personal-date,
+.personal-place {
+    color: var(--color-secundario);
+    font-size: 12px;
+}
+
+.personal-item-content h3 {
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: -0.035em;
+    margin-bottom: 10px;
+}
+
+.personal-description {
+    max-width: 620px;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Competencias */
+
+.personal-skills {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 35px;
+}
+
+.personal-skills p {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--color-linea);
+    font-size: 14px;
+    transition: padding-left 0.25s ease;
+}
+
+.personal-skills p:hover {
+    padding-left: 6px;
+}
+
+/* Contacto */
+
+.personal-contact {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 0 130px;
+    border-top: 1px solid var(--color-linea);
+}
+
+.personal-contact h2 {
+    max-width: 900px;
+    font-size: clamp(42px, 7vw, 92px);
+    font-weight: 400;
+    line-height: 0.98;
+    letter-spacing: -0.075em;
+    margin-bottom: 40px;
+}
+
+.personal-contact-link {
+    color: var(--color-texto);
+    font-size: 14px;
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-texto);
+    padding-bottom: 7px;
+    transition: opacity 0.25s ease;
+}
+
+.personal-contact-link:hover {
+    opacity: 0.5;
+}
+
+/* Pie de página */
+
+.pie {
+    padding: 28px 5%;
+    border-top: 1px solid var(--color-linea);
+    color: var(--color-secundario);
+    font-size: 11px;
+}
+
+.pie a {
+    color: var(--color-texto);
+    text-decoration: none;
+}
+
+.pie a:hover {
+    opacity: 0.5;
+}
+
+/* Accesibilidad: reducir movimiento */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+/* Móvil */
+
+@media (max-width: 700px) {
+    .cabecera-proyectos {
+        padding: 22px 5%;
+    }
+
+    .cabecera-proyectos .menu {
+        gap: 14px;
+    }
+
+    .personal-page {
+        padding: 55px 5% 0;
+    }
+
+    .personal-intro {
+        margin-bottom: 115px;
+    }
+
+    .personal-intro h1 {
+        font-size: clamp(48px, 12vw, 76px);
+        line-height: 0.98;
+        letter-spacing: -0.075em;
+        margin-bottom: 45px;
+    }
+
+    .personal-bio {
+        margin-left: 0;
+        font-size: 18px;
+    }
+
+    .personal-section {
+        margin-bottom: 100px;
+    }
+
+    .personal-section-heading {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding-bottom: 24px;
+    }
+
+    .personal-section-heading h2 {
+        font-size: clamp(36px, 10vw, 54px);
+    }
+
+    .personal-section-heading .personal-eyebrow {
+        margin: 0 0 8px;
+    }
+
+    .personal-item {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 25px 0;
+    }
+
+    .personal-item:hover {
+        padding-left: 0;
+    }
+
+    .personal-skills {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 18px;
+    }
+
+    .personal-skills p {
+        font-size: 13px;
+        padding: 17px 0;
+    }
+
+    .personal-contact {
+        padding: 65px 0 85px;
+    }
+
+    .personal-contact h2 {
+        font-size: clamp(42px, 11vw, 64px);
+    }
+
+    .pie {
+        padding: 22px 5%;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+}
+
+/* ========================================
+   TEMA OSCURO — NEGRO Y BLANCO
+======================================== */
+
+:root {
+    --color-fondo: #000000;
+    --color-texto: #ffffff;
+    --color-secundario: #a3a3a3;
+    --color-linea: #333333;
+}
+
+/* Fondo general */
+
+html,
+body {
+    background-color: #000000 !important;
+    color: #ffffff;
+}
+
+/* Cabecera */
+
+.cabecera-proyectos {
+    background-color: #000000;
+}
+
+.cabecera-proyectos .logo,
+.cabecera-proyectos .menu a {
+    color: #ffffff;
+}
+
+.cabecera-proyectos .menu a:hover {
+    color: #999999;
+}
+
+.cabecera-proyectos .menu-mobile {
+    color: #ffffff;
+}
+
+/* Presentación */
+
+.personal-page {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.personal-intro h1,
+.personal-section-heading h2,
+.personal-item-content h3,
+.personal-contact h2 {
+    color: #ffffff;
+}
+
+.personal-eyebrow,
+.personal-date,
+.personal-place {
+    color: #a3a3a3;
+}
+
+.personal-bio,
+.personal-description,
+.personal-skills p {
+    color: #e5e5e5;
+}
+
+/* Separadores */
+
+.personal-section-heading,
+.personal-item,
+.personal-skills p,
+.personal-contact,
+.pie {
+    border-color: #333333;
+}
+
+/* Enlaces de contacto */
+
+.personal-contact-link {
+    color: #ffffff;
+    border-bottom-color: #ffffff;
+}
+
+.personal-contact-link:hover {
+    opacity: 0.55;
+}
+
+/* Pie de página */
+
+.pie {
+    background-color: #000000;
+    color: #a3a3a3;
+}
+
+.pie a {
+    color: #ffffff;
+}
+
+/* Selección de texto */
+
+::selection {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Menú móvil */
+
+@media (max-width: 700px) {
+    .cabecera-proyectos .menu {
+        background-color: #000000;
+    }
+
+    .cabecera-proyectos .menu a {
+        color: #ffffff;
+    }
+}
