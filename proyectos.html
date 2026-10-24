@@ -1,11 +1,11 @@
-
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Proyectos — GUI_BEAMED</title>
-  <link rel="stylesheet" href="./styleproyectos.css"">
+  <link rel="stylesheet" href="./styleproyectos.css">
 </head>
 
 <body>
@@ -25,48 +25,65 @@
     <h1>Proyectos</h1>
 
     <nav class="filtros">
-      <a href="#todos">Todos</a>
-      <a href="#identidad">Identidad</a>
-      <a href="#editorial">Editorial</a>
-      <a href="#diseno-expositivo">Diseño expositivo</a>
-      <a href="#diseno-expositivo">Ilustraciones</a>
-
+      <a href="#" data-filtro="todos">Todos</a>
+      <a href="#" data-filtro="identidad">Identidad</a>
+      <a href="#" data-filtro="editorial">Editorial</a>
+      <a href="#" data-filtro="diseno-expositivo">Diseño expositivo</a>
+      <a href="#" data-filtro="ilustraciones">Ilustraciones</a>
     </nav>
 
     <section class="rejilla-proyectos" id="todos">
 
-      <a href="./cemo.html" class="proyecto">
-        <img src="./imgweb/img_cemo/portfolio_2026-04.png" alt="Proyecto editorial">
+      <a href="./cemo.html"
+         class="proyecto"
+         data-categoria="editorial">
+        <img src="./imgweb/img_cemo/portfolio_2026-04.png"
+             alt="Proyecto editorial CEMO">
         <h2>CEMO - Chaos Formalism</h2>
         <p>Editorial</p>
       </a>
 
-      <a href="#" class="proyecto">
-        <img src="./imgweb/img_crb/Free_Business_Card_Mockup_3.png" alt="Proyecto editorial">
+      <a href="#"
+         class="proyecto"
+         data-categoria="editorial">
+        <img src="./imgweb/img_crb/Free_Business_Card_Mockup_3.png"
+             alt="Revista STARSTABS">
         <h2>Revista STARSTABS</h2>
         <p>Editorial</p>
       </a>
 
-      <a href="#" class="proyecto">
-        <img src="./imgweb/img_lpdm/lpdm.png" alt="Proyecto de identidad visual">
+      <a href="#"
+         class="proyecto"
+         data-categoria="editorial">
+        <img src="./imgweb/img_lpdm/lpdm.png"
+             alt="Nos Hemos Equivocado Con Este Libro">
         <h2>Nos Hemos Equivocado Con Este Libro</h2>
         <p>Editorial</p>
       </a>
 
-      <a href="#" class="proyecto">
-        <img src="./imgweb/img_rial/rial.png" alt="Proyecto de diseño expositivo">
+      <a href="#"
+         class="proyecto"
+         data-categoria="identidad">
+        <img src="./imgweb/img_rial/rial.png"
+             alt="Casa Rural Bonavista">
         <h2>Casa Rural Bonavista</h2>
         <p>Branding</p>
       </a>
 
-            <a href="#" class="proyecto">
-        <img src="./imgweb/img_starstabs/starstabs.png" alt="Proyecto de diseño expositivo">
+      <a href="#"
+         class="proyecto"
+         data-categoria="editorial">
+        <img src="./imgweb/img_starstabs/starstabs.png"
+             alt="La Página del Mural">
         <h2>La Página del Mural</h2>
         <p>Editorial</p>
       </a>
 
-            <a href="#" class="proyecto">
-        <img src="./imgweb/img_nhecel/nhecel.png" alt="Proyecto de diseño expositivo">
+      <a href="#"
+         class="proyecto"
+         data-categoria="diseno-expositivo">
+        <img src="./imgweb/img_nhecel/nhecel.png"
+             alt="Proyecto de diseño expositivo">
         <h2>Nombre del proyecto</h2>
         <p>Diseño expositivo</p>
       </a>
@@ -79,5 +96,29 @@
     © GUI BEAMED
   </footer>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const filtros = document.querySelectorAll("[data-filtro]");
+      const proyectos = document.querySelectorAll(".proyecto");
+
+      filtros.forEach((filtro) => {
+        filtro.addEventListener("click", (evento) => {
+          evento.preventDefault();
+
+          const categoria = filtro.dataset.filtro;
+
+          proyectos.forEach((proyecto) => {
+            const coincide =
+              categoria === "todos" ||
+              proyecto.dataset.categoria === categoria;
+
+            proyecto.style.display = coincide ? "" : "none";
+          });
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>
+```
